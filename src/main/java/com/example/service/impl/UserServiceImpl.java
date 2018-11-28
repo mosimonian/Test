@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
     public User save(User user){
         return userDAO.save(user);
     }
+    public void delete(User user){
+        userDAO.delete(user);
+    }
+    public void update(User user){
+
+    }
 }

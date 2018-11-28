@@ -26,10 +26,17 @@ public class TestController {
     public List<User> findAll() {
         return userService.findAll();
     }
-    @RequestMapping("/add/{name}")
-    public User addUser(@PathVariable String name ){
+    @RequestMapping("/add")
+    public User addUser(@Autowired String name ){
         User user = new User();
-
+        user.setName(name);
         return userService.save(user);
+    }
+    @RequestMapping("/delete")
+    public List<User> delete(@Autowired long id){
+        User user = new User();
+        user.setId(id);
+        userService.delete(user);
+        return userService.findAll();
     }
 }
